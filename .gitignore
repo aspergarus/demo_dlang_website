@@ -17,3 +17,4 @@ dlang_demo_cli
 *.obj
 *.lst
 vibed.db
+public/media

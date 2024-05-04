@@ -21,11 +21,6 @@ void home(HTTPServerRequest req, HTTPServerResponse res)
 	manager.set!string("messages", "");
 
 	string userEmail = manager.get!string("email");
-	if (userEmail.length > 0) {
-	    User user = User.findByEmail(userEmail);
-		Cart cart = Cart.getUserCart(user.id);
-		writeln(user.email, cart);
-	}
 
 	Product[] products = Product.getAllActive();
 
@@ -34,6 +29,12 @@ void home(HTTPServerRequest req, HTTPServerResponse res)
 	common["message"] = message;
 	common["email"] = userEmail;
 	common["isAdmin"] = User.isAdmin(common["email"]).to!string;
+
+	if (userEmail.length > 0) {
+	    User user = User.findByEmail(userEmail);
+		uint cartItemsNum = Cart.getNumberOfCartItems(user.id);
+		common["cartNum"] = cartItemsNum.to!string;
+	}
 
 	render!("content/index.dt", common, products)(res);
 }

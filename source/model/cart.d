@@ -39,6 +39,22 @@ struct Cart {
         return Cart.hydrate(resultSet);
     }
 
+    static uint getNumberOfCartItems(ulong userId) {
+        auto db = Database("vibed.db");
+
+        auto statement = db.prepare("
+            SELECT
+                count(*) 
+            FROM cart c
+            JOIN cart_items ci ON c.id = ci.cart_id  
+            WHERE c.uid = ?
+        ");
+        statement.bindAll(userId);
+        
+        ResultRange resultSet = statement.execute();
+        return resultSet.oneValue!uint;
+    }
+
     static Cart hydrate(ResultRange resultSet) {
         Cart cart = Cart(0, 0);
 

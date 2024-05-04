@@ -7,9 +7,9 @@ div.menu-item
   div.menu-item
     span.menu-item-user #{common["email"]}
     a.item-link.item-link-right(href="/logout") Logout
-  - if ("cartNum" in common && common["cartNum"].length > 0)
+  - if ("cartNum" in common && common["cartNum"].to!uint > 0)
     div.menu-item
-      a.item-link.item-link-right(href="/cart") Cart #{common["cartNum"]}
+      a.item-link.item-link-right(href="/cart") Cart (#{common["cartNum"]})
 - else
   div.menu-item
     a.item-link.item-link-right(href="/login") Login
