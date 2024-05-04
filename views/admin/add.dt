@@ -1,0 +1,19 @@
+extends layout/layout
+
+block maincontent
+  h2 Add new product
+  form(action="/admin/add", method="post", enctype="multipart/form-data")
+    div
+      label Title
+        input(type="text", name="title", id="title", placeholder="Title")
+    div
+      label Description
+        input(type="text", name="description", id="description", placeholder="Description")
+    div
+      label Price
+        input(type="number", name="price", id="price", placeholder="Price")
+    div
+      label Product image
+        input(type="file", name="image", id="image", accept="image/*")
+    a(href="/admin") Cancel
+    input(type="submit", value="Save")

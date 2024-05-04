@@ -1,0 +1,115 @@
+body, p
+{
+  margin: 0;
+  padding: 0;
+}
+
+.products {
+  display: block;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 3fr 1fr;
+}
+
+.admin-product {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 3fr 1fr;
+  margin: 1rem 0;
+}
+
+.admin-product p:nth-of-type(2n) {
+  background-color: rgba(120, 120, 120, 0.9);
+}
+
+.admin-product p:nth-of-type(2n+1) {
+  background-color: rgba(180, 180, 180, 0.9);
+}
+
+.actions a {
+  margin-right: 0.5rem;
+}
+
+.hide-product {
+  box-shadow: 0px 0px 15px tomato;
+  background: linear-gradient(-45deg, tomato 0%, tomato 1%);
+  /* opacity: 0.7; */
+}
+
+.hide-product .status {
+  color: tomato;
+  font-weight: 900;
+}
+
+.index-title {
+  text-align: center;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 1rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.product {
+  width: 402px;
+}
+
+.product .image {
+  text-align: center;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.product .image img {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.product .title {
+  text-align: center;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.price-and-action {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid black;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.price-and-action div {
+  text-align: center;
+  font-family: "Canva Sans", "Noto Sans Variable", "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+}
+
+.product .price {
+  border-right: 1px solid black;
+}
+
+.product .actions {
+  background-color: rgb(21, 234, 63);
+  border-bottom-right-radius: 1rem;
+}
+
+.product .actions a {
+  display: block;
+  color: #fff;
+  color-scheme: light;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* cart page */
+.cart-item {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}

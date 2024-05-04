@@ -1,0 +1,18 @@
+extends layout/layout
+
+block maincontent
+  p
+    | You visited this page #{common["counter"]} times.
+  h1.index-title Buy the best products
+  div.product-grid
+    - foreach( product; products )
+      div.product(class='#{product.status ? "show-product" : "hide-product"}')
+        div.image
+          img(src="/media/images/#{product.img_path}", width="400", height="200")
+        div.title
+          | #{product.title}
+        div.price-and-action
+          div.price
+            | #{product.price} $
+          div.actions
+            a(href="/cart/add/#{product.id}") Buy

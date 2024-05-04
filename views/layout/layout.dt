@@ -1,0 +1,17 @@
+doctype 5
+html
+  head
+    title Demo of e-shop
+    link(rel= 'stylesheet', type='text/css', href='/css/style.css')
+    script(src='/js/script.js')
+  body
+    div.container
+      div.menu
+        include layout/menu.dt
+      - if ("message" in common)
+        div.flash-messages
+          include layout/flash.dt
+      div.content
+        block maincontent
+      div.footer
+        include layout/footer.dt

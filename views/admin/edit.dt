@@ -1,0 +1,22 @@
+extends layout/layout
+
+block maincontent
+  h2 Edit product
+  form(action="/admin/edit/#{product.id}", method="post", enctype="multipart/form-data") 
+    div
+      label Title
+        input(type="text", name="title", id="title", placeholder="Title", value="#{product.title}")
+    div
+      label Description
+        input(type="text", name="description", id="description", placeholder="Description", value="#{product.description}")
+    div
+      label Price
+        input(type="number", name="price", id="price", placeholder="Price", value="#{product.price}")
+    div
+      label Current image
+        img(src="/media/images/#{product.img_path}", width="300", height="200")
+    div
+      label If you want to change image, fill the next field. Otherwise, keep it empty
+        input(type="file", name="image", id="image", accept="image/*")
+    a(href="/admin") Cancel editing
+    input(type="submit", value="Save")

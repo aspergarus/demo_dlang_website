@@ -1,0 +1,23 @@
+extends layout/layout
+
+block maincontent
+  h1.index-title Your cart items
+  div.cart-items
+    - foreach( item; cart.items )
+      div.cart-item
+        div.image
+          img(src="/media/images/#{item.img_path}", width="50", height="50")
+        div.title
+          | #{item.title}
+        div.price
+          | #{item.price} $
+        div.quantity
+          | #{item.quantity}
+          a(href="/cart/inc/#{item.id}") Increase
+          a(href="/cart/dec/#{item.id}") Decrease
+        div.actions
+          a(href="/cart/remove/#{item.id}") Remove from cart
+  div.total
+    | Total: #{total} $
+  div.clean-cart
+    a(href="/cart/clean/#{cart.id}") Clean cart

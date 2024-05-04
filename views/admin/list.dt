@@ -1,0 +1,33 @@
+extends layout/layout
+
+block maincontent
+  h2 List of produts to manage
+  a(href="/admin/add") Add new product
+  div.products
+    div.header
+      p Title
+      p Description
+      p Price
+      p Status
+      p Image
+      p Actions
+    - foreach( product; products )
+      div.admin-product(class='#{product.status ? "show-product" : "hide-product"}')
+        p.title
+          | #{product.title}
+        p.description
+          | #{product.description}
+        p.price
+          | #{product.price}
+        p.status
+          | #{product.status ? "Active" : "Non-active"}
+        p.image
+          img(src="/media/images/#{product.img_path}", width="300", height="200")  
+        p.actions
+          a(href="/admin/status/#{product.id}")
+            - if (product.status == 0)
+              | Show
+            - else 
+              | Hide
+          a(href="/admin/edit/#{product.id}") Edit
+          a(href="/admin/delete/#{product.id}") Delete

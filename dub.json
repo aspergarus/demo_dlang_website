@@ -1,0 +1,31 @@
+{
+	"authors": [
+		"mustafa1453"
+	],
+	"copyright": "Copyright © 2024, mustafa1453",
+	"description": "A simple vibe.d server application.",
+	"license": "proprietary",
+	"name": "dlang_demo",
+	"subPackages": [
+        {
+            "name": "app",
+            "sourcePaths": ["source"],
+            "mainSourceFile": "source/app.d",
+            "targetType": "executable",
+			"dependencies": {
+				"vibe-d": "~>0.9",
+				"d2sqlite3": "~>1.0.0"
+			}
+        },
+        {
+            "name": "cli",
+            "sourcePaths": ["cli"],
+            "mainSourceFile": "cli/cli.d",
+            "targetType": "executable",
+			"dependencies": {
+				"vibe-d:http": "~>0.9",
+				"d2sqlite3": "~>1.0.0"
+			}
+        }
+    ]
+}

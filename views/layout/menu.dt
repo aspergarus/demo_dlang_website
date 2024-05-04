@@ -1,0 +1,17 @@
+div.menu-item
+  a.item-link(href="/") Home
+- if ("isAdmin" in common && common["isAdmin"] == "true")
+  div.menu-item
+    a.item-link(href="/admin") Manage products
+- if ("email" in common && common["email"].length > 0)
+  div.menu-item
+    span.menu-item-user #{common["email"]}
+    a.item-link.item-link-right(href="/logout") Logout
+  - if ("cartNum" in common && common["cartNum"].length > 0)
+    div.menu-item
+      a.item-link.item-link-right(href="/cart") Cart #{common["cartNum"]}
+- else
+  div.menu-item
+    a.item-link.item-link-right(href="/login") Login
+  div.menu-item
+    a.item-link.item-link-right(href="/register") Register

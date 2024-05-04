@@ -1,0 +1,16 @@
+extends layout/layout
+
+block maincontent
+  h2 Are you sure want to delete this product
+  div
+    p Title: #{product.title}"
+    div
+      p Description: #{product.description}
+    div
+      p Price: #{product.price}
+    div
+      p Current image
+      img(src="/media/images/#{product.img_path}", width="300", height="200")
+  form(action="/admin/delete/#{product.id}", method="post") 
+    a(href="/admin") Cancel
+    input(type="submit", value="Delete")
